@@ -1,4 +1,4 @@
-import "../styles/checkbox.css"
+import "../styles/customCheckbox.css"
 
 interface CheckBoxProps {
     handleOnChange?: (event?: any) => void;

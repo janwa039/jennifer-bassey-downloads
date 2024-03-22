@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import "../styles/index.css"
 
 // Components
-import CustomCheckBox from "./CheckBox"
+import CustomCheckBox from "./CustomCheckBox"
 import TableHeader from "./TableHeader"
 import TableBody from "./TableBody"
 import Alert from "./CustomAlert"

@@ -5,7 +5,7 @@
     height: 20px;
     border-radius: 0.15em;
     margin-right: 0.5em;
-    border: 0.15em solid var(--color-grey);
+    border: 0.15em solid var(--color-dark-grey);
     outline: none;
     cursor: pointer;
     display: flex;

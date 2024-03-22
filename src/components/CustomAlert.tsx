@@ -1,4 +1,4 @@
-import "../styles/alert.css"
+import "../styles/customAlert.css"
 
 interface AlertProps {
     handleCancelAlert: () => void;

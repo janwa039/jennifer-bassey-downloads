@@ -1,4 +1,4 @@
-import CustomCheckBox from './CheckBox'
+import CustomCheckBox from './CustomCheckBox'
 import Status from './Status'
 
 interface TableBodyProps {
