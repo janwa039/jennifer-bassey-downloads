@@ -26,7 +26,7 @@ You will also see any lint errors in the console.
 
 ```
 - Add more test for the components
-- Add constanst to remove all addcoded values where necessary.
+- Add constanst to remove all hard coded values where necessary.
 ```
 
 ### `npm test`
