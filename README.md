@@ -1,4 +1,4 @@
-# Getting Started with jennifer-bassey-downloads
+# Getting Started
 
 This project is meant to display and show files to be downloaded
 
@@ -12,8 +12,9 @@ git clone -b main ./jenniferbassey.bundle jennifer-bassey-downloads
 cd jennifer-bassey-downloads
 ```
 
-### Running the app
+### `Running the app`
 
+npm install
 npm run start
 
 Runs the app in the development mode.
@@ -21,12 +22,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-## TODO:
+### `Todo`:
 
 ```
 - Add more test for the components
-- Add constanst to remove all addcoded values where nessary.
-
+- Add constanst to remove all addcoded values where necessary.
 ```
 
 ### `npm test`
