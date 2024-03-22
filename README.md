@@ -7,14 +7,15 @@ This project is meant to display and show files to be downloaded
 ```
 Via bundle
 
-Get the bundle
-git clone -b main ./jenniferbassey.bundle jennifer-bassey-downloads
-cd jennifer-bassey-downloads
+*   Get the bundle 
+*   Go to the path in which bundle is downloaded
+*   On ypur terminal, git clone -b main [path]/jenniferbassey.bundle jennifer-bassey-downloads
+*   cd jennifer-bassey-downloads
 ```
 
 ### `Running the app`
 
-npm install
+npm install\
 npm run start
 
 Runs the app in the development mode.
