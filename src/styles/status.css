@@ -1,0 +1,13 @@
+.status {
+    position: relative;
+}
+
+.status-primary {
+    border-radius: 50%;
+    background-color: #42dc42;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: -23px;
+    top: 2px;
+}
