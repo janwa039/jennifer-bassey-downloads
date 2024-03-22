@@ -62,7 +62,7 @@ const Table = () => {
             checkboxStatus = "intermediate"
             checkBoxlabel = " Selected " + selectedCount
         } else {
-            checkBoxlabel = "None Selecteed"
+            checkBoxlabel = "None Selected"
         }
 
         setLabel(checkBoxlabel)
@@ -111,7 +111,7 @@ const Table = () => {
                             className="download__btn"
                             aria-pressed={isAlertOpen} 
                             onClick={toggleAlertOpen}>
-                                Download Seleceted
+                                Download Selected
                         </button>
                     </div>
                 </div>    
