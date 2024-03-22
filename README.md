@@ -5,8 +5,11 @@ This project is meant to display and show files to be downloaded
 ## Getting Stated
 
 ```
-# clone the ....
+Via bundle
 
+Get the bundle
+git clone -b main ./jenniferbassey.bundle jennifer-bassey-downloads
+cd jennifer-bassey-downloads
 
 ### Running the app
 
@@ -19,10 +22,13 @@ You will also see any lint errors in the console.
 
 ```
 
-
+```
 ## TODO:
 
+- Add more test for the components
+- Add constanst to remove all addcoded values where nessary.
 
+```
 
 ### `npm test`
 
