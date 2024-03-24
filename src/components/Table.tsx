@@ -1,22 +1,31 @@
-import { useState, useEffect } from "react"
-import "../styles/index.css"
+import { useState, useEffect, memo } from "react"
+import "../styles/table.css"
 
 // Components
 import CustomCheckBox from "./CustomCheckBox"
 import TableHeader from "./TableHeader"
 import TableBody from "./TableBody"
 import Alert from "./CustomAlert"
-import { tableData } from "../data"
 
-const Table = () => {
+// constants
+import { 
+    SELECTED_ALL, 
+    NONE_SELECTED, 
+    STATUS_CHECKED, 
+    STATUS_INTERMEDIATE, 
+    STATUS_UNCHECKED, 
+    SELECTED
+} from '../contants'
+
+const Table = ({data}: {data: FileData[]}) => {
     const [checkedAll, setCheckedAll] = useState<CheckBoxStatus>("unchecked");
-    const [fileData, setFileData] = useState<FileData[]>([])
+    const [fileData, setFileData] = useState<FileDataState[]>([])
     const [label, setLabel] = useState<string>("None Selected")
     const [isAlertOpen, setToggleAlert] = useState(false)
 
     useEffect(() => {
-        createDataInfo(tableData)
-      }, []);
+        createDataInfo(data)
+      }, [data]);
 
     function createDataInfo(info: FileData[]) {
         const formattedFileData = info.map(data=> {
@@ -33,15 +42,15 @@ const Table = () => {
     }
 
     const toggleSelectAll = () => {
-        let checkboxStatus: CheckBoxStatus = "unchecked"
-        let checkBoxlabel: string = "None Selected"
+        let checkboxStatus: CheckBoxStatus = STATUS_UNCHECKED
+        let checkBoxlabel: string = NONE_SELECTED
 
-        if (checkedAll === "unchecked") {
-            checkboxStatus = "checked"
-            checkBoxlabel = "Selected All"
+        if (checkedAll === STATUS_UNCHECKED) {
+            checkboxStatus = STATUS_CHECKED
+            checkBoxlabel = SELECTED_ALL
         }
         const newSelectedList = fileData.map(
-            item => ({...item, isChecked: checkboxStatus === "checked" })
+            item => ({...item, isChecked: checkboxStatus === STATUS_CHECKED })
         );
         setLabel(checkBoxlabel)
         setFileData(newSelectedList)
@@ -49,20 +58,20 @@ const Table = () => {
     }
 
     const updateSelectAll = () => {
-        let checkboxStatus: CheckBoxStatus = "unchecked";
+        let checkboxStatus: CheckBoxStatus = STATUS_UNCHECKED;
         let checkBoxlabel: string = ""
         const selectedCount = fileData.filter(item => item.isChecked).length
         const allSelected = selectedCount === fileData.length
         const someSelected = !allSelected && selectedCount > 0
 
         if (allSelected) {
-            checkboxStatus = "checked"
-            checkBoxlabel = "Selected All"
+            checkboxStatus = STATUS_CHECKED
+            checkBoxlabel = SELECTED_ALL
         } else if (someSelected) {
-            checkboxStatus = "intermediate"
-            checkBoxlabel = " Selected " + selectedCount
+            checkboxStatus =STATUS_INTERMEDIATE
+            checkBoxlabel = ` ${SELECTED} ` + selectedCount
         } else {
-            checkBoxlabel = "None Selected"
+            checkBoxlabel = NONE_SELECTED
         }
 
         setLabel(checkBoxlabel)
@@ -70,7 +79,7 @@ const Table = () => {
     }
 
     const handleIndividualClick = (id: string) => {
-           const listCopy: FileData[] = [...fileData]
+           const listCopy: FileDataState[] = [...fileData]
            let clickedItemToUpdate = listCopy.find((item) => item.id === id);
 
            if (clickedItemToUpdate) {
@@ -94,15 +103,13 @@ const Table = () => {
             />)}
             <div className="wrapper" data-testid="main-content">
                 <div className="wrapper__header">
-                    <div>
-                        <CustomCheckBox 
-                            aria-checked={checkedAll} 
-                            active={checkedAll === "checked"} 
-                            type={checkedAll} labelText={label} 
-                            name="selectAll" 
-                            handleOnChange={toggleSelectAll}
-                        />
-                    </div>
+                    <CustomCheckBox 
+                        aria-checked={checkedAll} 
+                        active={checkedAll === "checked"} 
+                        type={checkedAll} labelText={label} 
+                        name="selectAll" 
+                        handleOnChange={toggleSelectAll}
+                    />
                     <div className="wrapper_download">
                         <button 
                             data-testid="download-btn"
@@ -114,17 +121,19 @@ const Table = () => {
                                 Download Selected
                         </button>
                     </div>
-                </div>    
-                <table>
-                    <TableHeader />
-                    <TableBody 
-                        data={fileData} 
-                        handleClick={handleIndividualClick} 
-                    />
-                </table>
+                </div>
+                <div className="table-container"> 
+                    <table>
+                        <TableHeader />
+                        <TableBody 
+                            data={fileData} 
+                            handleClick={handleIndividualClick} 
+                        />
+                    </table>
+                </div>
             </div>
         </main>
     )
 }
 
-export default Table
+export default  memo(Table)

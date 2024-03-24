@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import CustomCheckBox from './CustomCheckBox'
 import Status from './Status'
 
 interface TableBodyProps {
-    data: FileData[];
+    data: FileDataState[];
     handleClick: (name: string) => void
 }
 
@@ -38,4 +39,4 @@ const TableBody = ({data, handleClick} : TableBodyProps) => {
     </tbody>
    )
 }
-export default TableBody
+export default memo(TableBody)

@@ -1,4 +1,4 @@
-
+import { memo } from "react"
 import "../styles/status.css"
 
 const STATUS_TYPES: Record<FileDataStatus, string> = {
@@ -18,4 +18,4 @@ const Status = ({value} : {value : FileDataStatus}) => {
 
 }
 
-export default Status
+export default memo(Status)

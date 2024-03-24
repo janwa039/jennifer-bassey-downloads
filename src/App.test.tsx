@@ -1,8 +1,9 @@
 import { render, fireEvent, screen, getByTestId } from '@testing-library/react';
 import App from './App';
 import Table from './components/Table';
+import { tableData } from './data'
 
-const mainComponenet = <Table />
+const mainComponenet = <Table data={tableData}  />
 
 describe ("<App/>",  () => {
   it('renders App component correctly', () => {
@@ -21,7 +22,7 @@ describe("<Table /> ", () => {
     expect(screen.getByText('Files you want to download')).toBeInTheDocument()
   })
 
-  it("seleted all when click should have the label None Selected or Selected All", () => {
+  it("seleted all when clicked should have the label None Selected or Selected All", () => {
     const { getByTestId } = render(mainComponenet)
 
     const SelectedAllBtn = getByTestId("selectAll")

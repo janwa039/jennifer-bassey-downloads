@@ -1,6 +1,6 @@
 # Getting Started
 
-This project is meant to display and show files to be downloaded
+This project displays a list of items with checkboxes and a download button, allowing the user to select items and download them. Additionally, it includes an alert component that may be shown conditionally.
 
 ## Getting Stated
 
@@ -28,6 +28,7 @@ You will also see any lint errors in the console.
 ```
 - Add more test for the components
 - Add constanst to remove all hard coded values where necessary.
+- Add more accessabilty
 ```
 
 ### `npm test`
@@ -41,10 +42,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.

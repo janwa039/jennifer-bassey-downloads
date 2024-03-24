@@ -1,4 +1,4 @@
-import "../styles/index.css"
+import "../styles/table.css"
 
 const HEADER_TITLES: string[]  = ["Name", "Device", "Path", "Status"]
 

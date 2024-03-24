@@ -4,7 +4,7 @@
 
 .status-primary {
     border-radius: 50%;
-    background-color: #42dc42;
+    background-color: var(--color-light-green);
     width: 15px;
     height: 15px;
     position: absolute;

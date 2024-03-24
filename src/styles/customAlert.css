@@ -33,7 +33,7 @@
 
 .modal__footer button {
     padding: 15px 20px;
-    background-color: var(--color-button-primary);
+    background-color: var(--color-dark-green);
     color: var(--color-white);
     border-radius: 7px;
     font-size: 16px;

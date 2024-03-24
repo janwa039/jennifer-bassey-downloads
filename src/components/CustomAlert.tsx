@@ -1,14 +1,15 @@
+import { memo } from "react";
 import "../styles/customAlert.css"
 
 interface AlertProps {
     handleCancelAlert: () => void;
     handleOkayAlert: () => void
-    data: FileData[]
+    data: FileDataState[]
 }
 
 const Alert = ({handleCancelAlert, handleOkayAlert, data}: AlertProps) => {
 
-    const downloadFilter = ({status, isChecked} : FileData) => (status.toLocaleLowerCase() === "available" && isChecked )
+    const downloadFilter = ({status, isChecked} : FileDataState) => (status.toLocaleLowerCase() === "available" && isChecked )
 
     return (
         <div role="dialog" className="modal__overlay" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
@@ -31,4 +32,4 @@ const Alert = ({handleCancelAlert, handleOkayAlert, data}: AlertProps) => {
 
 }
 
-export default Alert
+export default memo(Alert)

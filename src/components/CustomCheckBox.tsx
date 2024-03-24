@@ -1,3 +1,5 @@
+import { memo } from "react";
+import { STATUS_INTERMEDIATE } from "../contants";
 import "../styles/customCheckbox.css"
 
 interface CheckBoxProps {
@@ -10,11 +12,11 @@ interface CheckBoxProps {
 }
 
 const CustomCheckBox = ({ handleOnChange, name, active, type, labelText, tabIndex }: CheckBoxProps) => {
-    const isIntermediateState = type === "intermediate"
+    const isIntermediateState = type === STATUS_INTERMEDIATE
     const isSelectedAll = name  === "selectAll"
 
     return (
-        <div className={`checkbox-container ${ isIntermediateState ? type : ""}`}>
+        <div className={`checkbox-container ${ isIntermediateState ? type : ""} ${ isSelectedAll ? "adjust-selected" : ""}`}>
             <label htmlFor={name} >
                 <input
                     tabIndex={tabIndex}
@@ -34,4 +36,4 @@ const CustomCheckBox = ({ handleOnChange, name, active, type, labelText, tabInde
 
 }
 
-export default CustomCheckBox
+export default memo(CustomCheckBox)
